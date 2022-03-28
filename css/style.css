@@ -1,0 +1,355 @@
+:root{
+    --black-bkg: #222222;
+    --pink-bkg: #F1E4E6;
+    --pink-color: #F16D7F;
+    --sales-color: #534A47;
+    --white-color: #FFFFFF;
+    --grey-color: #9F9F9F;
+    --menu-grey-color: #6F6E6E;
+    --darkgrey-color: #5D5D5D;
+    --products-bkg: #F8F8F8;
+    --advantages-color: #FBFBFB;
+}
+
+body{
+    font-family: 'Lato', sans-serif;
+    font-size: 14px;
+    line-height: 17px;
+    font-style: normal;
+    font-weight: 400;
+}
+
+.visually-hidden {
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    border: 0;
+    padding: 0;
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    margin: -1px;
+}
+
+.container{
+    width: 1140px;
+    margin: 0 auto;
+}
+
+.header{
+    background-color: var(--black-bkg);
+}
+
+.header__wrp{
+    display: flex;
+    align-items: center;
+    min-height: 75px;
+    justify-content: space-between;
+}
+
+.header__logo{
+    margin: 0 41px 0 0;
+}
+
+.header__menu-list{
+    display: flex;
+    align-items: center;
+}
+
+.header__burger{
+    border: none;
+    background-color: transparent; /*добавить прозрачный фон бургеру*/
+}
+
+.header__link{
+    margin: 0 0 0 33px;
+}
+
+.header__nav{
+    display: none;
+}
+
+.header__nav-title{
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.header__nav-item{
+    color: var(--pink-color);
+    text-transform: uppercase;
+}
+
+.nav-item__item{
+    color: var(--menu-grey-color);
+    text-transform: capitalize;
+  }
+
+/*BRAND*/
+.brand{
+    display: flex;
+    margin: 0 0 65px 0;
+}
+
+.brand__img{
+    width: 800px;
+    height: 765px;
+ }
+
+.brand__title-wrap{
+    flex-grow: 1;
+    background-color: var(--pink-bkg);
+    padding: 0 0 0 92px;
+    display: flex;
+    align-items: center;
+}
+
+.brand__title{
+    font-size: 48px;
+    font-weight: 900;
+    line-height: 58px;
+    text-transform: uppercase;
+}
+
+.brand__title-lower{
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 38px;
+    text-transform: uppercase;
+    display: block;
+}
+
+.brand__title-pink{
+    color: var(--pink-color);
+}
+
+/*SALES*/
+.sales__list{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.sales__item{
+    height: 260px;
+    width: 360px;
+    background: var(--sales-color);
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.sales__item-woman{
+    background: url("../img/woman-sales.jpg");
+}
+
+.sales__item-man{
+    background: url("../img/man-sales.jpg");
+}
+
+.sales__item-kids{
+    background: url("../img/kids-sales.jpg");
+}
+
+.sales__item-shoes{
+    width: 100%;
+    height: 180px;
+    background: url("../img/accessories-sales.jpg");
+    margin: 30px 0 0 0;
+}
+
+.sales__item-text{
+    font-size: 16px;
+    line-height: 19px;
+    color: var(--white-color);
+    text-transform: uppercase;
+}
+
+.sales__item-title{
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 29px;
+    color: var(--pink-color);
+    text-transform: uppercase;
+}
+
+/*PRODUCTS*/
+.products{
+    margin: 96px 0 96px 0;
+}
+
+.products__title{
+    font-size: 30px;
+    line-height: 36px;
+    text-align: center;
+}
+
+.products__sub-title{
+    font-size: 14px;
+    line-height: 17px;
+    color: var(--grey-color);
+    text-align: center;
+}
+
+.products__list{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin: 48px 0 18px 0;
+}
+
+.products__item{
+    width: 360px;
+    background-color: var(--products-bkg);
+    margin: 0 0 30px 0;
+}
+
+.products__item-title{
+    font-size: 13px;
+    line-height: 16px;
+    text-transform: uppercase;
+    margin: 24px 29px 0 17px;
+}
+
+.products__item-text{
+    font-weight: 300;
+    color: var(--darkgrey-color);
+    margin: 13px 29px 0 17px;
+}
+
+.products__item-price{
+    font-size: 16px;
+    line-height: 19px;
+    color: var(--pink-color);
+    margin: 18px 29px 20px 17px;
+}
+
+.products__button__wrp{
+    display: flex;
+    justify-content: center;
+}
+
+.products__button{
+    font-size: 16px;
+    line-height: 19px;
+    color: #F26376;
+    padding: 14px 39px;
+    border: 1px solid #FF6A6A;
+    background: none;
+}
+
+/*ADVANTAGES*/
+.advantages{
+    background: var(--black-bkg);;
+}
+
+.advantages__list{
+    min-height: 341px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.advantages__item{
+    display: flex;
+    flex-direction: column;
+}
+
+.advantages__item-img{
+    align-self: center;
+}
+
+.advantages__item-title{
+    font-size: 20px;
+    line-height: 24px;
+    color: var(--advantages-color);
+    text-align: center;
+    margin: 28px 0 16px 0;
+}
+
+.advantages__item-text{
+    font-weight: 300;
+    color: var(--advantages-color);
+    text-align: center;
+}
+
+/*FOOTER*/
+.footer__top{
+    background-image: url("../img/bkg-footer.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 448px;
+    display: flex;
+}
+
+.footer__top__wrp{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer__quote{
+    width: 360px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.footer__quote-icon{
+    margin: 0 0 30px 0;
+}
+
+.footer__quote-text{
+    font-size: 20px;
+    line-height: 24px;
+    text-align: center;
+    color: var(--black-bkg);
+}
+
+.footer__quote-ital{
+    font-style: italic;
+}
+
+.footer__form-title{
+    font-size: 18px;
+    line-height: 30px;
+    font-weight: 400;
+    text-align: center;
+    text-transform: uppercase;
+    margin: 0 0 32px 0;
+}
+
+.footer__form-title-lower{
+    font-size: 24px;
+    line-height: 40px;
+    font-weight: 700;
+    text-align: center;
+    text-transform: uppercase;
+    display: block;
+}
+
+.footer__bottom{
+    background-color: var(--black-bkg);
+}
+
+.footer__bottom__wrp{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 79px;
+}
+
+.footer__bottom-text{
+    font-size: 16px;
+    line-height: 19px;
+    color: var(--advantages-color)
+}
+
+.footer__bottom-list{
+    display: flex;
+}
+
+.footer__bottom-item{
+    margin: 0 0 0 7px;
+}
