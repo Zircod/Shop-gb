@@ -42,14 +42,34 @@ body{
 }
 
 .header__wrp{
+    position: relative;
     display: flex;
     align-items: center;
     min-height: 75px;
     justify-content: space-between;
 }
 
+.header__container{
+    display: flex;
+}
+
 .header__logo{
     margin: 0 41px 0 0;
+}
+
+.header__search-form{
+    display: none;
+}
+
+[type="search"] {
+    padding: 10px 20px;
+    border: none;
+    outline: 1px solid black;
+}
+
+[type="search"]:hover,
+[type="search"]:focus{
+    outline: 1px solid var(--pink-color);
 }
 
 .header__menu-list{
@@ -57,9 +77,37 @@ body{
     align-items: center;
 }
 
-.header__burger{
+.header__search-btn,
+.header__burger,
+.header__link{
     border: none;
     background-color: transparent; /*добавить прозрачный фон бургеру*/
+}
+
+.header__search-icon,
+.header__burger-icon,
+.header__person-icon,
+.header__basket-icon{
+    fill: #E8E8E8;
+}
+
+.header__search-btn:hover .header__search-icon,
+.header__search-btn:focus .header__search-icon,
+.header__burger:hover .header__burger-icon,
+.header__burger:focus .header__burger-icon,
+.header__link:hover .header__person-icon,
+.header__link:focus .header__person-icon,
+.header__link:hover .header__basket-icon,
+.header__link:focus .header__basket-icon{
+    fill: var(--pink-color);
+}
+
+/*исправить*/
+.header__search-btn:active .header__search-icon,
+.header__burger:active .header__burger-icon,
+.header__link:active .header__person-icon,
+.header__link:active .header__basket-icon{
+    opacity: 0.5;
 }
 
 .header__link{
@@ -67,23 +115,70 @@ body{
 }
 
 .header__nav{
+    position: absolute;
     display: none;
+    min-height: 764px;
+    width: 232px;
+    top: 100%;
+    right: -232px;
+    background: white;
+}
+
+.header__nav-close{
+    border: none;
+    background-color: transparent;
+    margin-top: 16px;
+    margin-left: 203px;
+}
+
+.header__nav-icon{
+    fill: #6F6E6E;
 }
 
 .header__nav-title{
     font-weight: 700;
     text-transform: uppercase;
+    padding: 9px 0 4px 33px;
 }
 
-.header__nav-item{
+.nav-item__title{
     color: var(--pink-color);
     text-transform: uppercase;
+    padding: 20px 0 12px 33px;
 }
 
 .nav-item__item{
+    margin: 0 0 11px 54px;
+}
+
+.nav-item__link{
     color: var(--menu-grey-color);
     text-transform: capitalize;
-  }
+    text-decoration: none;
+}
+
+.nav-item__link:hover,
+.nav-item__link:focus{
+    color: var(--pink-color);
+    cursor: pointer;
+}
+
+.nav-item__link:active{
+    opacity: 0.7;
+}
+
+/*
+.wrp {
+    width: 100%;
+    height: 764px;
+    display: none;
+    background: rgba(0, 0, 0, 0.6);
+}*/
+
+/*javascript для функции*/
+.display-block {
+    display: block;
+}
 
 /*BRAND*/
 .brand{
@@ -205,6 +300,61 @@ body{
     margin: 0 0 30px 0;
 }
 
+/*overlay карточки товара*/
+.products__item-overlay{
+    position: relative;
+}
+
+.products__item-overlay:before {
+    content: '';
+    width: 100%;
+    height: 100%;
+    /*background: rgba(0, 0, 0, 0.6);*/
+    background: #3A3838DB;
+    position: absolute;
+    top: 0;
+}
+
+.products__item-btn{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    /*чтобы кнопка с корзиной переместилась в центр*/
+    transform: translate(-50%, -50%);
+    border: 1px solid #FFFFFF;
+    background: none;
+    padding: 10px 16px 8px 13px;
+    font-size: 14px;
+    line-height: 17px;
+    color:  #FFFFFF;
+}
+
+.products__item-overlay:before,
+.products__item-btn{
+    display: none;
+}
+
+.products__item:hover .products__item-overlay:before,
+.products__item:hover .products__item-btn{
+    display: block;
+}
+
+.products__item-basket{
+    height: 24px;
+    width: 26px;
+    margin-right: 11px;
+    vertical-align: middle;
+}
+/*
+.products__item-btn::before{
+    content: url(../img/basket.svg);
+    margin-right: 11px;
+    width: 26px;
+    height: 24px;
+    display: inline-block;
+    vertical-align: middle;
+}*/
+
 .products__item-title{
     font-size: 13px;
     line-height: 16px;
@@ -237,6 +387,16 @@ body{
     padding: 14px 39px;
     border: 1px solid #FF6A6A;
     background: none;
+}
+
+.products__button:hover,
+.products__button:focus{
+    color: var(--white-color);
+    background: var(--pink-color);
+}
+
+.products__button:active{
+    opacity: 0.5;
 }
 
 /*ADVANTAGES*/
@@ -274,8 +434,8 @@ body{
     text-align: center;
 }
 
-/*FOOTER*/
-.footer__top{
+/*FOOTER subscribe*/
+.subscribe{
     background-image: url("../img/bkg-footer.png");
     background-repeat: no-repeat;
     background-size: cover;
@@ -283,35 +443,41 @@ body{
     display: flex;
 }
 
-.footer__top__wrp{
+.subscribe__wrp{
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.footer__quote{
+.subscribe__quote{
     width: 360px;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.footer__quote-icon{
+.subscribe__quote-icon{
     margin: 0 0 30px 0;
 }
 
-.footer__quote-text{
+.subscribe__quote-text{
     font-size: 20px;
     line-height: 24px;
     text-align: center;
     color: var(--black-bkg);
 }
 
-.footer__quote-ital{
+.subscribe__quote-ital{
     font-style: italic;
 }
 
-.footer__form-title{
+.subscribe__form-join{
+    display: flex;/*чтобы убрать пространство между label и input*/
+    /*min-height: 49px;*/
+    /*width: 356px;*/
+}
+
+.subscribe__form-title{
     font-size: 18px;
     line-height: 30px;
     font-weight: 400;
@@ -320,7 +486,7 @@ body{
     margin: 0 0 32px 0;
 }
 
-.footer__form-title-lower{
+.subscribe__form-title-lower{
     font-size: 24px;
     line-height: 40px;
     font-weight: 700;
@@ -329,27 +495,268 @@ body{
     display: block;
 }
 
-.footer__bottom{
+/*???subscribe__form-input поле ввода 280px вместо 256px*/
+/*???почему padding суммируется с width*/
+.subscribe__form-input{
+    width: 256px;
+    border: none;
+    border-radius: 25px 0 0 25px;
+    background: #E1E1E1;
+    padding-left: 22px;
+    font-size: 14px;
+    line-height: 17px;
+    text-align: left;
+    color: #222224;
+    opacity: 0.67;
+}
+
+.subscribe__form-input:hover,
+.subscribe__form-input:focus{
+    outline: 1px solid var(--pink-color);
+
+}
+
+.subscribe__form-btn{
+    height: 49px;
+    width: 100px;
+    border-radius: 0 25px 25px 0;
+    border: none;
+    background: var(--pink-color);
+    font-size: 14px;
+    line-height: 17px;
+    color: var(--white-color);
+}
+
+.subscribe__form-btn:hover,
+.subscribe__form-btn:focus{
+    background: #E05C6E;
+}
+.subscribe__form-btn:active{
+    opacity: 0.5;
+}
+
+/*FOOTER*/
+.footer{
     background-color: var(--black-bkg);
 }
 
-.footer__bottom__wrp{
+.footer__wrp{
     display: flex;
     justify-content: space-between;
     align-items: center;
     min-height: 79px;
 }
 
-.footer__bottom-text{
+.footer-text{
     font-size: 16px;
     line-height: 19px;
     color: var(--advantages-color)
 }
 
-.footer__bottom-list{
+.footer-list{
     display: flex;
 }
 
-.footer__bottom-item{
+.footer-item{
     margin: 0 0 0 7px;
+}
+
+.footer-icon{
+    fill: var(--black-bkg);
+}
+
+.footer-icon-bkg{
+    fill: var(--white-color);
+}
+
+.footer-icon-bkg:hover,
+.footer-icon-bkg:focus {
+    fill: var(--pink-color);
+}
+
+.footer-svg:hover .footer-icon-bkg,
+.footer-svg:hover .footer-icon-bkg{
+    fill: var(--pink-color);
+}
+
+.footer-icon:hover,
+.footer-icon:focus {
+    fill: var(--white-color);
+}
+
+.footer-svg:hover .footer-icon,
+.footer-svg:focus .footer-icon{
+    fill: var(--white-color);
+}
+
+.footer-svg:active .footer-icon-bkg,
+.footer-svg:active .footer-icon-bkg{
+    opacity: 0.7;
+}
+
+/*страница REGISTRATION*/
+.headline{
+    background: #F8F3F4;
+}
+
+.headline-wrp{
+    min-height: 148px;
+    display: flex;
+    align-items: center;
+}
+
+.headline__title{
+    font-size: 24px;
+    line-height: 29px;
+    text-transform: uppercase;
+    color: var(--pink-color);
+}
+
+.registration__wrp{
+    display: flex;
+    justify-content: space-between;
+    margin: 64px 0 96px 0;
+}
+
+.registration__form{
+    width: 360px;
+}
+
+.registration__login{
+    display: flex;
+    flex-direction: column;
+}
+
+.registration__login-title{
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 19px;
+    text-align: left;
+}
+
+.registration__login-input{
+    padding: 13px 0 16px 17px;
+    margin-top: 20px;
+    font-size: 13px;
+    font-weight: 300;
+    line-height: 16px;
+    border: 1px solid #A4A4A4;
+    color: #B1B1B1;
+}
+
+.registration__login-input::placeholder{
+    color: #B1B1B1;/*цвет placeholder input*/
+}
+
+.registration__login-input:hover,
+.registration__login-input:focus{
+    border-color: var(--pink-color);
+}
+
+.registration__login-male{
+    font-size: 11px;
+    font-weight: 300;
+    line-height: 13px;
+    color: #000000;
+    margin: 34px 0 34px 0;
+
+}
+
+input[type="radio"]{
+    vertical-align: middle;
+    width: 17px;
+    height: 17px;
+    margin: 0;
+}
+
+input[type="radio"]:hover,
+input[type="radio"]:focus{
+    outline: 1px solid var(--pink-color);
+}
+/*? как поменять цвет кружка при активации*/
+input[type="radio"]:checked{
+    background:  var(--pink-color);
+}
+
+.registration__login-radio{
+    margin: 0 20px 0 10px;
+}
+
+.registration__login-text{
+    font-size: 13px;
+    font-weight: 300;
+    line-height: 16px;
+    color: #B1B1B1;
+    margin: 15px 0 39px 0;
+}
+
+.registration__login-btn{
+    font-size: 14px;
+    line-height: 17px;
+    padding: 16px 29px 17px 29px;
+    color: var(--white-color);
+    background: var(--pink-color);
+    border: none;
+    text-transform: uppercase;
+}
+
+.registration__login-btn:hover,
+.registration__login-btn:focus{
+    background: #E05C6E;
+}
+
+.registration__login-btn:active{
+    opacity: 0.5;
+}
+
+.registration__login-arrow{
+    padding-left: 20px;
+}
+
+.registration__perks{
+    width: 652px;
+}
+
+.registration__perks-title{
+    font-size: 24px;
+    font-weight: 300;
+    line-height: 29px;;
+    text-align: left;
+    color: #000000;
+    text-transform: uppercase;
+}
+
+.registration__perks-text{
+    font-size: 24px;
+    font-weight: 300;
+    line-height: 29px;
+    text-align: left;
+    margin: 22px 0 21px 0;
+}
+
+.registration__perks-list{
+    margin: 0;
+    list-style: none;
+}
+
+.registration__perks-item{
+    position: relative;
+    font-size: 24px;
+    font-weight: 300;
+    line-height: 29px;
+    text-align: left;
+    margin-bottom: 16px;
+    margin-left: 42px;
+}
+
+.registration__perks-item:before{
+    content: "";
+    width: 20px;
+    height: 16px;
+    position: absolute;
+    left: -42px;
+    top: 7px;
+    background-image: url("../img/checkmark.svg");
+    /*display: inline-block;*/
+    /*vertical-align: middle;*/
 }
