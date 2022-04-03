@@ -59,6 +59,19 @@ body{
 
 .header__search-form{
     display: none;
+    position: relative;
+}
+
+.header__search-form::before {
+    content: '';
+    position: absolute;
+    left: 5px;
+    top: 13px;
+    width: 10px;
+    height: 10px;
+    background-image: url("../img/loupe.svg");
+    background-color: var(--pink-color);
+    background-size: 10px 10px;
 }
 
 [type="search"] {
@@ -84,34 +97,56 @@ body{
     background-color: transparent; /*добавить прозрачный фон бургеру*/
 }
 
-.header__search-icon,
-.header__burger-icon,
-.header__person-icon,
-.header__basket-icon{
+.header__icon{
     fill: #E8E8E8;
 }
 
-.header__search-btn:hover .header__search-icon,
-.header__search-btn:focus .header__search-icon,
-.header__burger:hover .header__burger-icon,
-.header__burger:focus .header__burger-icon,
-.header__link:hover .header__person-icon,
-.header__link:focus .header__person-icon,
-.header__link:hover .header__basket-icon,
-.header__link:focus .header__basket-icon{
+.header__search-btn:hover .header__icon,
+.header__search-btn:focus .header__icon,
+.header__burger:hover .header__icon,
+.header__burger:focus .header__icon,
+.header__link:hover .header__icon,
+.header__link:focus .header__icon{
     fill: var(--pink-color);
+    cursor: pointer;
 }
 
-/*исправить*/
-.header__search-btn:active .header__search-icon,
-.header__burger:active .header__burger-icon,
-.header__link:active .header__person-icon,
-.header__link:active .header__basket-icon{
-    opacity: 0.5;
+.header__search-btn:active .header__icon,
+.header__burger:active .header__icon,
+.header__link:active .header__icon{
+    opacity: 0.7;
 }
 
 .header__link{
     margin: 0 0 0 33px;
+    position: relative;
+}
+
+/*можно тоже самое через span после svg*/
+.header__link-basket::before{
+    position: absolute;
+    content: '5';
+    width: 19px;
+    height: 19px;
+    border-radius: 50%;
+    top: -24px;
+    right: -5px;
+    z-index: 1;
+    color: var(--white-color);
+    background-color: var(--pink-color);
+    text-align: center;
+    align-self: center;/*не сработал ?как центрировать по вертикали*/
+    font-size: 12px;
+    line-height: 14px;
+}
+
+.header__link-basket:hover::before,
+.header__link-basket:focus::before{
+    background-color: #E05C6E;
+}
+
+.header__link-basket:active::before{
+    opacity: 0.7;
 }
 
 .header__nav{
@@ -133,6 +168,16 @@ body{
 
 .header__nav-icon{
     fill: #6F6E6E;
+}
+
+.header__nav-close:hover .header__nav-icon,
+.header__nav-close:focus .header__nav-icon{
+    cursor: pointer;
+    fill: var(--pink-color)
+}
+
+.header__nav-close:active .header__nav-icon{
+    opacity: 0.7;
 }
 
 .header__nav-title{
@@ -313,6 +358,7 @@ body{
     background: #3A3838DB;
     position: absolute;
     top: 0;
+    display: none;
 }
 
 .products__item-btn{
@@ -321,22 +367,30 @@ body{
     left: 50%;
     /*чтобы кнопка с корзиной переместилась в центр*/
     transform: translate(-50%, -50%);
-    border: 1px solid #FFFFFF;
+    border: 1px solid  var(--white-color);
     background: none;
     padding: 10px 16px 8px 13px;
     font-size: 14px;
     line-height: 17px;
-    color:  #FFFFFF;
-}
-
-.products__item-overlay:before,
-.products__item-btn{
+    color:  var(--white-color);
     display: none;
 }
 
 .products__item:hover .products__item-overlay:before,
 .products__item:hover .products__item-btn{
     display: block;
+}
+
+.products__item-btn:focus,
+.products__item-btn:hover{
+    color: var(--white-color);
+    border: 1px solid var(--pink-color);
+    background: var(--pink-color);
+    cursor: pointer;
+}
+
+.products__item-btn:active{
+    opacity: 0.7;
 }
 
 .products__item-basket{
@@ -393,10 +447,11 @@ body{
 .products__button:focus{
     color: var(--white-color);
     background: var(--pink-color);
+    cursor: pointer;
 }
 
 .products__button:active{
-    opacity: 0.5;
+    opacity: 0.7;
 }
 
 /*ADVANTAGES*/
@@ -495,8 +550,6 @@ body{
     display: block;
 }
 
-/*???subscribe__form-input поле ввода 280px вместо 256px*/
-/*???почему padding суммируется с width*/
 .subscribe__form-input{
     width: 256px;
     border: none;
@@ -507,13 +560,13 @@ body{
     line-height: 17px;
     text-align: left;
     color: #222224;
-    opacity: 0.67;
+    opacity: 0.7;
+    box-sizing: border-box;/*чтобы поле ввода не увелич. больше ширины*/
 }
 
 .subscribe__form-input:hover,
 .subscribe__form-input:focus{
     outline: 1px solid var(--pink-color);
-
 }
 
 .subscribe__form-btn{
@@ -530,9 +583,10 @@ body{
 .subscribe__form-btn:hover,
 .subscribe__form-btn:focus{
     background: #E05C6E;
+    cursor: pointer;
 }
 .subscribe__form-btn:active{
-    opacity: 0.5;
+    opacity: 0.7;
 }
 
 /*FOOTER*/
@@ -641,7 +695,8 @@ body{
     font-weight: 300;
     line-height: 16px;
     border: 1px solid #A4A4A4;
-    color: #B1B1B1;
+    color: var(--black-bkg);
+    box-sizing: border-box;
 }
 
 .registration__login-input::placeholder{
@@ -650,36 +705,51 @@ body{
 
 .registration__login-input:hover,
 .registration__login-input:focus{
-    border-color: var(--pink-color);
+    outline: 2px solid var(--pink-color);
 }
 
-.registration__login-male{
+.registration__login-radio{
     font-size: 11px;
     font-weight: 300;
     line-height: 13px;
     color: #000000;
     margin: 34px 0 34px 0;
-
 }
 
-input[type="radio"]{
-    vertical-align: middle;
+[type="radio"]{
+    display: none;
+}
+
+.registration__login-male{
+    position: relative;
+    margin: 0 47px 0 27px;
+}
+
+.registration__login-male:before{
+    position: absolute;
+    content: '';
     width: 17px;
     height: 17px;
-    margin: 0;
+    border-radius: 50%;
+    border: 1px solid #A4A4A4;
+    box-sizing: border-box;
+    margin: -2px 0 0 -27px;
 }
 
-input[type="radio"]:hover,
-input[type="radio"]:focus{
-    outline: 1px solid var(--pink-color);
-}
-/*? как поменять цвет кружка при активации*/
-input[type="radio"]:checked{
-    background:  var(--pink-color);
+[type="radio"]:focus+.registration__login-male:before,
+[type="radio"]:hover+.registration__login-male:before,
+[type="radio"]:focus+.registration__login-male,
+[type="radio"]:hover+.registration__login-male{
+    cursor: pointer;
 }
 
-.registration__login-radio{
-    margin: 0 20px 0 10px;
+[type="radio"]:checked+.registration__login-male{
+    color: var(--pink-color);
+}
+
+[type="radio"]:checked+.registration__login-male:before{
+    background-color: var(--pink-color);
+    border-color: var(--pink-color);
 }
 
 .registration__login-text{
@@ -703,10 +773,11 @@ input[type="radio"]:checked{
 .registration__login-btn:hover,
 .registration__login-btn:focus{
     background: #E05C6E;
+    cursor: pointer;
 }
 
 .registration__login-btn:active{
-    opacity: 0.5;
+    opacity: 0.7;
 }
 
 .registration__login-arrow{
@@ -759,4 +830,236 @@ input[type="radio"]:checked{
     background-image: url("../img/checkmark.svg");
     /*display: inline-block;*/
     /*vertical-align: middle;*/
+}
+
+/*страница CARDS*/
+.shopping__wrp{
+    display: flex;
+    justify-content: space-between;
+    margin: 96px 0 128px 0;
+}
+
+.shopping__item{
+    display: flex;
+    width: 652px;
+    min-height: 306px;
+    margin-bottom: 40px;
+    box-shadow: 17px 19px 24px 0 #00000021;
+}
+
+.shopping__item-img{
+    min-height: 306px;
+    width: 262px;
+}
+
+.shopping__item-description{
+    padding: 22px 0 0 31px;
+    width: 390px;
+    position: relative;
+}
+
+.shopping__item-close{
+    border: none;
+    background-color: transparent;
+    padding: 0;
+    position: absolute;
+    top: 28px;
+    right: 22px;
+}
+
+.shopping__item-icon{
+    fill: #6F6E6E;
+    width: 18px;
+    height: 18px;
+}
+
+.shopping__item-close:hover .shopping__item-icon,
+.shopping__item-close:focus .shopping__item-icon{
+    fill: var(--pink-color);
+    cursor: pointer;
+}
+
+.shopping__item-close:active .shopping__item-icon{
+    opacity: 0.7;
+}
+
+
+.shopping__item-title{
+    font-size: 24px;
+    line-height: 29px;
+    text-align: left;
+    text-transform: uppercase;
+    margin-bottom: 42px;
+}
+
+.shopping__item-price,
+.shopping__item-color,
+.shopping__item-size,
+.shopping__item-quantity{
+    font-size: 22px;
+    line-height: 26px;
+    color: #575757;
+    text-align: left;
+    margin-bottom: 6px;
+}
+
+.shopping__item-price-red{
+    color: var(--pink-color);
+}
+
+.shopping__item-input{
+    width: 43px;
+    height: 24px;
+    border: 1px solid #EAEAEA;
+    box-sizing: border-box;
+    margin-left: 24px;
+    font-size: 18px;
+    line-height: 22px;
+    color: #656565;
+    text-align: center;
+}
+
+.shopping__btn{
+    display: flex;
+    justify-content: space-between;
+}
+
+.shopping__btn-wrp{
+    border: 1px solid #A4A4A4;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 17px;
+    color: #000000;
+    background: none;
+    padding: 16px 40px;
+    text-transform: uppercase;
+}
+
+.shopping__info{
+
+}
+
+.shopping__address{
+    display: flex;
+    flex-direction: column;
+    width: 360px;
+}
+
+.shopping__address-title{
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 19px;
+    text-align: left;
+    color: #222222;
+    text-transform: uppercase;
+}
+
+.shopping__address-input{
+    border: 1px solid #A4A4A4;
+    padding: 13px 0 16px 17px;
+    margin-top: 21px;
+    box-sizing: border-box;
+    color: var(--black-bkg);
+    font-size: 13px;
+    font-weight: 300;
+    line-height: 16px;
+    text-align: left;
+}
+
+.shopping__address-input::placeholder{
+    color: #B1B1B1;
+}
+
+.shopping__address-input:hover,
+.shopping__address-input:focus,
+.shopping__item-input:hover,
+.shopping__item-input:focus{
+    outline: 2px solid var(--pink-color);
+}
+
+.shopping__address-btn{
+    border: 1px solid #A4A4A4;
+    background: none;
+    padding: 11px 14px;
+    text-transform: uppercase;
+    font-weight: 300;
+    font-size: 11px;
+    line-height: 13px;
+    color: #4A4A4A;
+    margin: 24px 0 57px 0;
+}
+
+.shopping__btn-wrp:hover,
+.shopping__btn-wrp:focus,
+.shopping__address-btn:hover,
+.shopping__address-btn:focus{
+    color: var(--white-color);
+    background: var(--pink-color);
+    cursor: pointer;
+}
+
+.shopping__btn-wrp:active,
+.shopping__address-btn:active{
+    opacity: 0.7;
+}
+
+.shopping__total{
+    width: 360px;
+    height: 214px;
+    background: #F5F3F3;
+    padding: 39px 43px 42px 44px;
+    box-sizing: border-box;
+}
+
+.shopping__total-sub{
+    font-size: 11px;
+    line-height: 13px;
+    text-align: right;
+    text-transform: uppercase;
+    color: #4A4A4A;
+    margin-bottom: 12px;
+}
+
+.shopping__total-grand{
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 19px;
+    text-align: right;
+    text-transform: uppercase;
+    color: var(--black-bkg);
+    margin-bottom: 21px;
+}
+
+.shopping__total-end{
+    color: var(--pink-color);
+    font-weight: 700;
+}
+
+.shopping__total-btn{
+    height: 50px;
+    width: 273px;
+    background: var(--pink-color);
+    border: none;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 19px;
+    text-transform: uppercase;
+    color: var(--white-color);
+    margin-top: 17px;
+
+}
+
+.shopping__total-btn:hover,
+.shopping__total-btn:focus{
+    background: #E05C6E;
+    cursor: pointer;
+}
+
+.shopping__total-btn:active{
+    opacity: 0.7;
+}
+
+/*js*/
+.display-none {
+    display: none;
 }
