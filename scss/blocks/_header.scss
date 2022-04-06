@@ -1,0 +1,168 @@
+.header{
+  background-color: $black-bkg;
+
+  .header__wrp{
+    position: relative;
+    display: flex;
+    align-items: center;
+    min-height: 75px;
+    justify-content: space-between;
+  }
+
+  .header__container{
+    display: flex;
+  }
+
+  .header__logo{
+    margin: 0 41px 0 0;
+  }
+
+  .header__search-form{
+    display: none;
+    position: relative;
+  }
+ //для картинки внутри поля search
+  //.header__search-form::before{
+  //  content: '';
+  //  position: absolute;
+  //  left: 5px;
+  //  top: 13px;
+  //  width: 10px;
+  //  height: 10px;
+  //  background-image: url("../img/loupe.svg");
+  //  background-color: $pink-color;
+  //  background-size: 10px 10px;
+  //}
+
+  .header__menu-list{
+    display: flex;
+    align-items: center;
+  }
+
+  .header__search-btn,
+  .header__burger,
+  .header__link{
+    border: none;
+    background-color: transparent; /*добавить прозрачный фон бургеру*/
+  }
+
+  .header__icon{
+    fill: $header-icon;
+  }
+
+  [type="search"] {
+    padding: 10px 20px;
+    border: 1px solid $black-bkg;
+    border-radius: 25px 25px 25px 25px;
+    outline: 1px solid $black-bkg;
+    background: lighten($black-bkg, 5);
+    color: $white-color;
+  }
+
+  [type="search"]::placeholder {
+    color: $white-color;
+  }
+
+  [type="search"]:hover,
+  [type="search"]:focus{
+    outline: 1px solid $pink-color;
+    background: lighten($black-bkg, 10);
+  }
+
+  .header__search-btn:hover .header__icon,
+  .header__search-btn:focus .header__icon,
+  .header__burger:hover .header__icon,
+  .header__burger:focus .header__icon,
+  .header__link:hover .header__icon,
+  .header__link:focus .header__icon{
+    fill: $pink-color;
+    cursor: pointer;
+  }
+
+  .header__search-btn:active .header__icon,
+  .header__burger:active .header__icon,
+  .header__link:active .header__icon{
+    opacity: 0.7;
+  }
+
+  .header__link{
+    margin: 0 0 0 33px;
+    position: relative;
+  }
+
+  /*можно тоже самое через span после svg*/
+  .header__link-basket::before{
+    position: absolute;
+    content: '5';
+    width: 19px;
+    height: 19px;
+    border-radius: 50%;
+    top: -24px;
+    right: -5px;
+    z-index: 1;
+    color: $white-color;
+    background-color: $pink-color;
+    @include font (12px, 14px);
+    @include flex-center;
+  }
+
+  .header__link-basket:hover::before,
+  .header__link-basket:focus::before{
+    background-color: $btn-pink-hover;
+  }
+
+  .header__link-basket:active::before{
+    opacity: 0.7;
+  }
+
+  .header__nav{
+    position: absolute;
+    display: none;
+    min-height: 764px;
+    max-width: 230px;
+    top: 100%;
+    right: -232px;
+    background: $white-color;
+  }
+
+  .header__nav-close{
+    border: none;
+    background-color: transparent;
+    margin-top: 16px;
+    margin-left: 203px;
+  }
+
+  .header__nav-icon{
+    fill: $darkgrey-color;
+  }
+
+  .header__nav-close:hover .header__nav-icon,
+  .header__nav-close:focus .header__nav-icon{
+    cursor: pointer;
+    fill: $pink-color;
+  }
+
+  .header__nav-close:active .header__nav-icon{
+    opacity: 0.7;
+  }
+
+  .header__nav-title{
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 9px 0 4px 33px;
+  }
+
+  //javascript для функции
+  .display-block {
+    display: block;
+  }
+
+  .header__link{
+    @media (max-width: 767px) {
+      display: none;
+    }
+}
+
+}
+
+

@@ -1,0 +1,80 @@
+/*BRAND*/
+.brand{
+  display: flex;
+  margin: 0 0 65px 0;
+
+  @media (min-width: 768px) and (max-width: 1024px) {
+    margin: 0 0 20px 0;
+  }
+
+  @media (max-width: 767px) {
+    margin: 0 0 64px 0;
+  }
+
+  &__img{
+    width: 50%;
+    height: auto;
+
+    @media (max-width: 767px) {
+      display: none;
+    }
+  }
+
+  &__title-wrap{
+    flex-grow: 1;
+    background-color: $pink-bkg;
+    padding: 0 0 0 60px;
+    display: flex;
+    align-items: center;
+
+    @media (max-width: 767px) {
+      min-height: 363px;
+      justify-content: center;
+      padding: 0;
+    }
+  }
+
+  &__decor{
+    width: 12px;
+    height: 92px;
+    background: $pink-color;
+    border: none;
+    margin: 0 16px 0 0;
+
+    @media (max-width: 767px) {
+      height: 61px;
+    }
+  }
+
+  &__title{
+    @include font (48px, 58px, normal, 900);
+    text-transform: uppercase;
+
+    @media (min-width: 768px) and (max-width: 1024px) {
+      @include font (44px, 53px, normal, 900);
+    }
+
+    @media (max-width: 767px) {
+      @include font (38px, 46px, normal, 900);
+    }
+  }
+
+  &__title-lower{
+    @include font (32px, 38px, normal, 700);
+    text-transform: uppercase;
+    display: block;
+
+    @media (min-width: 768px) and (max-width: 1024px) {
+      @include font (24px, 29px, normal, 700);
+    }
+    @media (max-width: 767px) {
+      @include font (20px, 24px, normal, 700);
+    }
+  }
+
+  &__title-pink{
+    color: $pink-color;
+  }
+
+}
+

@@ -1,0 +1,106 @@
+/*FOOTER subscribe*/
+.subscribe{
+  background-image: url("../img/bkg-footer.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 448px;
+
+  .subscribe__wrp{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 87px;
+
+    @media (min-width: 768px) and (max-width: 1024px) {
+      flex-direction: column;
+      padding-top: 55px;
+    }
+
+    @media (max-width: 767px) {
+      flex-direction: column;
+      padding-top: 55px;
+    }
+  }
+
+  .subscribe__quote{
+    width: 360px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .subscribe__quote-icon{
+    margin: 0 0 30px 0;
+  }
+
+  .subscribe__quote-text{
+    font-size: 20px;
+    line-height: 24px;
+    text-align: center;
+    color: $black-bkg;
+  }
+
+  .subscribe__quote-ital{
+    font-style: italic;
+  }
+
+  .subscribe__form-join{
+    display: flex;/*чтобы убрать пространство между label и input*/
+    /*min-height: 49px;*/
+    /*width: 356px;*/
+  }
+
+  .subscribe__form-title{
+    @include font (18px, 30px, normal, 400);
+    text-align: center;
+    text-transform: uppercase;
+    margin: 0 0 32px 0;
+  }
+
+  .subscribe__form-title-lower{
+    @include font (24px, 40px, normal, 700);
+    text-align: center;
+    text-transform: uppercase;
+    display: block;
+  }
+
+  .subscribe__form-input{
+    @include font (14px, 17px);
+    width: 256px;
+    border: none;
+    border-radius: 25px 0 0 25px;
+    background: $header-icon;
+    padding-left: 22px;
+    text-align: left;
+    color: $black-bkg;
+    opacity: 0.7;
+    box-sizing: border-box;/*чтобы поле ввода не увелич. больше ширины*/
+  }
+
+  .subscribe__form-input:hover,
+  .subscribe__form-input:focus{
+    outline: 1px solid $pink-color;
+  }
+
+  .subscribe__form-btn{
+    @include font (14px, 17px);
+    height: 49px;
+    width: 100px;
+    border-radius: 0 25px 25px 0;
+    border: none;
+    background: $pink-color;
+    color: $white-color;
+  }
+
+  .subscribe__form-btn:hover,
+  .subscribe__form-btn:focus{
+    background: $btn-pink-hover;
+    cursor: pointer;
+  }
+
+  .subscribe__form-btn:active{
+    opacity: 0.7;
+  }
+}
+
+
