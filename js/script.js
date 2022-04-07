@@ -31,7 +31,6 @@ let shopping__item_1 = document.getElementById('shopping__item_1');
 
 close_card_1.addEventListener('click', function(){
     shopping__item_1.classList.toggle('display-none');
-    close_card_1.classList.toggle('display-none');
 });
 
 let close_card_2 = document.getElementById('close_card_2');
@@ -40,5 +39,4 @@ let shopping__item_2 = document.getElementById('shopping__item_2');
 
 close_card_2.addEventListener('click', function(){
     shopping__item_2.classList.toggle('display-none');
-    close_card_2.classList.toggle('display-none');
 });

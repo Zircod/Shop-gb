@@ -1,0 +1,153 @@
+/*страница REGISTRATION*/
+.registration {
+  .registration__wrp {
+    display: flex;
+    justify-content: space-between;
+    margin: 64px 0 96px 0;
+  }
+
+  .registration__form {
+    width: 360px;
+  }
+
+  .registration__login {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .registration__login-title {
+    @include font (16px, 19px, normal, 300);
+    text-align: left;
+  }
+
+  .registration__login-input {
+    @include font (13px, 16px, normal, 300);
+    padding: 13px 0 16px 17px;
+    margin-top: 20px;
+    border: 1px solid $shopping-input-grey;
+    color: $black-bkg;
+    box-sizing: border-box;
+  }
+
+  .registration__login-input::placeholder {
+    color: $shopping-text-grey; /*цвет placeholder input*/
+  }
+
+  .registration__login-input:hover,
+  .registration__login-input:focus {
+    outline: 2px solid $pink-color;
+  }
+
+  .registration__login-radio {
+    @include font (11px, 13px, normal, 300);
+    color: $black-bkg;
+    margin: 34px 0 34px 0;
+  }
+
+  .registration__login-male {
+    position: relative;
+    margin: 0 47px 0 27px;
+  }
+
+  .registration__login-male:before {
+    position: absolute;
+    content: '';
+    width: 17px;
+    height: 17px;
+    border-radius: 50%;
+    border: 1px solid $shopping-input-grey;
+    box-sizing: border-box;
+    margin: -2px 0 0 -27px;
+  }
+
+  [type="radio"] {
+    display: none;
+  }
+
+  [type="radio"]:focus + .registration__login-male:before,
+  [type="radio"]:hover + .registration__login-male:before,
+  [type="radio"]:focus + .registration__login-male,
+  [type="radio"]:hover + .registration__login-male {
+    cursor: pointer;
+  }
+
+  [type="radio"]:checked + .registration__login-male {
+    color: $pink-color;
+  }
+
+  [type="radio"]:checked + .registration__login-male:before {
+    background-color: $pink-color;
+    border-color: $pink-color;
+  }
+
+  .registration__login-text {
+    @include font (13px, 16px, normal, 300);
+    color: $shopping-text-grey;
+    margin: 15px 0 39px 0;
+  }
+
+  .registration__login-btn {
+    @include font (14px, 17px);
+    padding: 16px 29px 17px 29px;
+    color: $white-color;
+    background: $pink-color;
+    border: none;
+    text-transform: uppercase;
+  }
+
+  .registration__login-btn:hover,
+  .registration__login-btn:focus {
+    background: $btn-pink-hover;
+    cursor: pointer;
+  }
+
+  .registration__login-btn:active {
+    opacity: 0.7;
+  }
+
+  .registration__login-arrow {
+    padding-left: 20px;
+  }
+
+  .registration__perks {
+    width: 652px;
+  }
+
+  .registration__perks-title {
+    @include font (24px, 29px, normal, 300);
+    text-align: left;
+    color: $black-bkg;
+    text-transform: uppercase;
+  }
+
+  .registration__perks-text {
+    @include font (24px, 29px, normal, 300);
+    text-align: left;
+    margin: 22px 0 21px 0;
+  }
+
+  .registration__perks-list {
+    margin: 0;
+    list-style: none;
+  }
+
+  .registration__perks-item {
+    position: relative;
+    @include font (24px, 29px, normal, 300);
+    text-align: left;
+    margin-bottom: 16px;
+    margin-left: 42px;
+  }
+
+  .registration__perks-item:before {
+    content: "";
+    width: 20px;
+    height: 16px;
+    position: absolute;
+    left: -42px;
+    top: 7px;
+    background-image: url("../img/checkmark.svg");
+    /*display: inline-block;*/
+    /*vertical-align: middle;*/
+  }
+}

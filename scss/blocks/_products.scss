@@ -1,0 +1,152 @@
+/*PRODUCTS*/
+.products{
+  margin: 96px 0;
+
+  @media (min-width: 768px) and (max-width: 1024px) {
+    margin: 155px 0;
+  }
+
+  @media (max-width: 767px) {
+    margin: 64px 0;
+  }
+
+  .products__title{
+    font-size: 30px;
+    line-height: 36px;
+    text-align: center;
+  }
+
+  .products__sub-title{
+    @include font (14px, 17px);
+    color: $grey-color;
+    text-align: center;
+  }
+
+  .products__list{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin: 48px 0 18px 0;
+
+    @media (min-width: 768px) and (max-width: 1024px) {
+      justify-content: space-around;
+    }
+
+    @media (max-width: 767px) {
+      justify-content: center;
+    }
+
+  }
+
+  .products__item{
+    max-width: 360px;
+    background-color: $products-bkg;
+    margin: 0 0 30px 0;
+  }
+
+  /*overlay карточки товара*/
+  .products__item-overlay{
+    position: relative;
+  }
+
+  .products__item-overlay:before {
+    content: '';
+    width: 100%;
+    height: 100%;
+    /*background: rgba(0, 0, 0, 0.6);*/
+    background: #3A3838DB;
+    position: absolute;
+    top: 0;
+    display: none;
+  }
+
+  .products__item-btn{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    /*чтобы кнопка с корзиной переместилась в центр*/
+    transform: translate(-50%, -50%);
+    border: 1px solid  $white-color;
+    background: none;
+    padding: 10px 16px 8px 13px;
+    @include font (14px, 17px);
+    color:  $white-color;
+    display: none;
+  }
+
+  .products__item:hover .products__item-overlay:before,
+  .products__item:hover .products__item-btn{
+    display: block;
+  }
+
+  .products__item-btn:focus,
+  .products__item-btn:hover{
+    //color: var(--white-color);
+    border: 1px solid $pink-color;
+    background: $pink-color;
+    cursor: pointer;
+  }
+
+  .products__item-btn:active{
+    opacity: 0.7;
+  }
+
+  .products__item-basket{
+    height: 24px;
+    width: 26px;
+    margin-right: 11px;
+    vertical-align: middle;
+  }
+  /*
+  .products__item-btn::before{
+      content: url(../img/basket.svg);
+      margin-right: 11px;
+      width: 26px;
+      height: 24px;
+      display: inline-block;
+      vertical-align: middle;
+  }*/
+
+  .products__item-title{
+    @include font (13px, 16px);
+    text-transform: uppercase;
+    margin: 24px 29px 0 17px;
+  }
+
+  .products__item-text{
+    font-weight: 300;
+    color: $darkgrey-color;
+    margin: 13px 29px 0 17px;
+  }
+
+  .products__item-price{
+    @include font (16px, 19px);
+    color: $pink-color;
+    margin: 18px 29px 20px 17px;
+  }
+
+  .products__button__wrp{
+    display: flex;
+    justify-content: center;
+  }
+
+  .products__button{
+    @include font (16px, 19px);
+    color: $pink-color;
+    padding: 14px 39px;
+    border: 1px solid $pink-color;
+    background: none;
+  }
+
+  .products__button:hover,
+  .products__button:focus{
+    color: $white-color;
+    background: $btn-pink-hover;
+    cursor: pointer;
+  }
+
+  .products__button:active{
+    opacity: 0.7;
+  }
+}
+

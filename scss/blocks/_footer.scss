@@ -1,0 +1,55 @@
+/*FOOTER*/
+.footer{
+  background-color: $black-bkg;
+
+  .footer__wrp{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 79px;
+  }
+
+  .footer-text{
+    font-size: 16px;
+    line-height: 19px;
+    color: $advantages-color;
+  }
+
+  .footer-list{
+    display: flex;
+  }
+
+  .footer-link{
+    width: 32px;
+    height: 32px;
+    background: $white-color;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 0 0 7px;
+  }
+
+  .footer-icon{
+    fill: $black-bkg;
+  }
+
+  .footer-link:hover,
+  .footer-link:focus {
+    background: $pink-color;
+  }
+
+  .footer-icon:hover,
+  .footer-icon:focus,
+  .footer-link:hover .footer-icon,
+  .footer-link:focus .footer-icon{
+    fill: $white-color;
+    cursor: pointer;
+  }
+
+  .footer-link:active,
+  .footer-link:active .footer-icon{
+    opacity: 0.7;
+  }
+}
+
+
