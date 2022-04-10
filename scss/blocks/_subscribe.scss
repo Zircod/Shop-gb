@@ -1,70 +1,105 @@
 /*FOOTER subscribe*/
-.subscribe{
+.subscribe {
+  background-color: $header-icon;
   background-image: url("../img/bkg-footer.png");
   background-repeat: no-repeat;
   background-size: cover;
-  min-height: 448px;
+  background-position: center;
+  height: 448px;
 
-  .subscribe__wrp{
+  @include tablet {
+    height: 614px;
+    background-position-x: -395px;
+  }
+
+  @include mobile {
+    height: 550px;
+  }
+
+  .subscribe__wrp {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-top: 87px;
+    padding-top: 97px;
 
-    @media (min-width: 768px) and (max-width: 1024px) {
+    @include tablet {
       flex-direction: column;
-      padding-top: 55px;
-    }
-
-    @media (max-width: 767px) {
-      flex-direction: column;
-      padding-top: 55px;
+      padding-top: 64px;
     }
   }
 
-  .subscribe__quote{
+  .subscribe__quote {
     width: 360px;
     display: flex;
     flex-direction: column;
     align-items: center;
+
+    @include smale-mobile {
+      width: 100%;
+    }
   }
 
-  .subscribe__quote-icon{
+  .subscribe__quote-icon {
     margin: 0 0 30px 0;
   }
 
-  .subscribe__quote-text{
-    font-size: 20px;
-    line-height: 24px;
+  .subscribe__quote-text {
+    @include font (20px, 24px);
     text-align: center;
     color: $black-bkg;
+
+    @include mobile {
+      @include font (18px, 22px);
+    }
   }
 
-  .subscribe__quote-ital{
+  .subscribe__quote-ital {
     font-style: italic;
+
+    @include mobile {
+      @include font (18px, 22px);
+    }
   }
 
-  .subscribe__form-join{
-    display: flex;/*чтобы убрать пространство между label и input*/
-    /*min-height: 49px;*/
-    /*width: 356px;*/
+  .subscribe__form {
+
+    @include tablet {
+      margin-top: 48px;
+    }
+
+    @include mobile {
+      margin-top: 59px;
+    }
   }
 
-  .subscribe__form-title{
-    @include font (18px, 30px, normal, 400);
+  .subscribe__form-join {
+    display: flex;
+  }
+
+  .subscribe__form-title {
+    @include font (18px, 30px);
     text-align: center;
     text-transform: uppercase;
     margin: 0 0 32px 0;
+
+    @include tablet {
+      margin: 0 0 27px 0;
+    }
+
+    @include mobile {
+      margin: 0 0 22px 0;
+      @include font (14px, 22px);
+    }
   }
 
-  .subscribe__form-title-lower{
+  .subscribe__form-title-lower {
     @include font (24px, 40px, normal, 700);
     text-align: center;
     text-transform: uppercase;
     display: block;
   }
 
-  .subscribe__form-input{
+  .subscribe__form-input {
     @include font (14px, 17px);
     width: 256px;
     border: none;
@@ -74,15 +109,19 @@
     text-align: left;
     color: $black-bkg;
     opacity: 0.7;
-    box-sizing: border-box;/*чтобы поле ввода не увелич. больше ширины*/
+    box-sizing: border-box;
+
+    @include smale-mobile {
+      width: 100%;
+    }
   }
 
   .subscribe__form-input:hover,
-  .subscribe__form-input:focus{
+  .subscribe__form-input:focus {
     outline: 1px solid $pink-color;
   }
 
-  .subscribe__form-btn{
+  .subscribe__form-btn {
     @include font (14px, 17px);
     height: 49px;
     width: 100px;
@@ -93,13 +132,16 @@
   }
 
   .subscribe__form-btn:hover,
-  .subscribe__form-btn:focus{
+  .subscribe__form-btn:focus {
     background: $btn-pink-hover;
     cursor: pointer;
   }
 
-  .subscribe__form-btn:active{
+  .subscribe__form-btn:active {
     opacity: 0.7;
+  }
+  p{
+    font-size: 14px;
   }
 }
 

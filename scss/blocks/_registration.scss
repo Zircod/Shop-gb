@@ -1,13 +1,31 @@
 /*страница REGISTRATION*/
 .registration {
+
   .registration__wrp {
     display: flex;
     justify-content: space-between;
     margin: 64px 0 96px 0;
+
+    @include tablet {
+      margin: 40px 0 96px 0;
+    }
+
+    @include mobile {
+      flex-direction: column;
+      align-items: center;
+    }
   }
 
   .registration__form {
     width: 360px;
+
+    @include tablet {
+      width: 50%;
+    }
+
+    @include mobile {
+      width: 100%;
+    }
   }
 
   .registration__login {
@@ -30,7 +48,7 @@
   }
 
   .registration__login-input::placeholder {
-    color: $shopping-text-grey; /*цвет placeholder input*/
+    color: $shopping-text-grey;
   }
 
   .registration__login-input:hover,
@@ -45,39 +63,44 @@
   }
 
   .registration__login-male {
-    position: relative;
-    margin: 0 47px 0 27px;
+    display: inline-flex;
+    align-items: center;
+    margin-right: 20px;
   }
 
   .registration__login-male:before {
-    position: absolute;
     content: '';
     width: 17px;
     height: 17px;
     border-radius: 50%;
     border: 1px solid $shopping-input-grey;
     box-sizing: border-box;
-    margin: -2px 0 0 -27px;
+    margin-right: 10px;
   }
 
-  [type="radio"] {
+  .registration__login-check {
     display: none;
   }
 
-  [type="radio"]:focus + .registration__login-male:before,
-  [type="radio"]:hover + .registration__login-male:before,
-  [type="radio"]:focus + .registration__login-male,
-  [type="radio"]:hover + .registration__login-male {
+  .registration__login-check:focus + .registration__login-male:before,
+  .registration__login-check:hover + .registration__login-male:before,
+  .registration__login-check:focus + .registration__login-male,
+  .registration__login-check:hover + .registration__login-male {
     cursor: pointer;
   }
 
-  [type="radio"]:checked + .registration__login-male {
+  .registration__login-check:checked + .registration__login-male {
     color: $pink-color;
   }
 
-  [type="radio"]:checked + .registration__login-male:before {
+  .registration__login-check:checked + .registration__login-male:before {
     background-color: $pink-color;
     border-color: $pink-color;
+    background-image: url("../img/checkmark.svg");
+    background-size: 60% 60%;
+    background-repeat: no-repeat;
+    background-position: center;
+    box-shadow: 0 0 8px $pink-color;
   }
 
   .registration__login-text {
@@ -111,32 +134,46 @@
 
   .registration__perks {
     width: 652px;
+
+    @include tablet {
+      width: 50%;
+      margin-left: 22px;
+    }
+
+    @include mobile {
+      width: 100%;
+      margin-left: 0;
+      margin-top: 40px;
+    }
   }
 
   .registration__perks-title {
     @include font (24px, 29px, normal, 300);
-    text-align: left;
-    color: $black-bkg;
     text-transform: uppercase;
+
+    @include tablet {
+      @include font (16px, 19px, normal, 300);
+    }
   }
 
   .registration__perks-text {
     @include font (24px, 29px, normal, 300);
-    text-align: left;
     margin: 22px 0 21px 0;
-  }
 
-  .registration__perks-list {
-    margin: 0;
-    list-style: none;
+    @include tablet {
+      @include font (16px, 19px, normal, 300);
+    }
   }
 
   .registration__perks-item {
     position: relative;
     @include font (24px, 29px, normal, 300);
-    text-align: left;
     margin-bottom: 16px;
     margin-left: 42px;
+
+    @include tablet {
+      @include font (16px, 19px, normal, 300);
+    }
   }
 
   .registration__perks-item:before {
@@ -147,7 +184,5 @@
     left: -42px;
     top: 7px;
     background-image: url("../img/checkmark.svg");
-    /*display: inline-block;*/
-    /*vertical-align: middle;*/
   }
 }

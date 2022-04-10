@@ -1,16 +1,19 @@
 /*страница REGISTRATION/CARD*/
-.headline{
+.headline {
   background: $headline-color;
 
-  .headline-wrp{
+  .headline__wrp {
     min-height: 148px;
     display: flex;
     align-items: center;
+
+    @include mobile {
+      justify-content: center;
+    }
   }
 
-  .headline__title{
-    font-size: 24px;
-    line-height: 29px;
+  .headline__title {
+    @include font (24px, 29px);
     text-transform: uppercase;
     color: $pink-color;
   }

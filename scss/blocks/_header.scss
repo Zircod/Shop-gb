@@ -1,7 +1,7 @@
-.header{
+.header {
   background-color: $black-bkg;
 
-  .header__wrp{
+  .header__wrp {
     position: relative;
     display: flex;
     align-items: center;
@@ -9,48 +9,40 @@
     justify-content: space-between;
   }
 
-  .header__container{
+  .header__container {
     display: flex;
   }
 
-  .header__logo{
+  .header__logo {
     margin: 0 41px 0 0;
+
+    @include mobile {
+      margin: 0 20px 0 0;
+    }
   }
 
-  .header__search-form{
+  .header__search-form {
     display: none;
     position: relative;
   }
- //для картинки внутри поля search
-  //.header__search-form::before{
-  //  content: '';
-  //  position: absolute;
-  //  left: 5px;
-  //  top: 13px;
-  //  width: 10px;
-  //  height: 10px;
-  //  background-image: url("../img/loupe.svg");
-  //  background-color: $pink-color;
-  //  background-size: 10px 10px;
-  //}
 
-  .header__menu-list{
+  .header__menu-list {
     display: flex;
     align-items: center;
   }
 
   .header__search-btn,
   .header__burger,
-  .header__link{
+  .header__link {
     border: none;
-    background-color: transparent; /*добавить прозрачный фон бургеру*/
+    background-color: transparent;
   }
 
-  .header__icon{
+  .header__icon {
     fill: $header-icon;
   }
 
-  [type="search"] {
+  .header__search-input {
     padding: 10px 20px;
     border: 1px solid $black-bkg;
     border-radius: 25px 25px 25px 25px;
@@ -59,12 +51,12 @@
     color: $white-color;
   }
 
-  [type="search"]::placeholder {
-    color: $white-color;
+  .header__search-input::placeholder {
+    color: darken($white-color, 20);
   }
 
-  [type="search"]:hover,
-  [type="search"]:focus{
+  .header__search-input:hover,
+  .header__search-input:focus {
     outline: 1px solid $pink-color;
     background: lighten($black-bkg, 10);
   }
@@ -74,24 +66,27 @@
   .header__burger:hover .header__icon,
   .header__burger:focus .header__icon,
   .header__link:hover .header__icon,
-  .header__link:focus .header__icon{
+  .header__link:focus .header__icon {
     fill: $pink-color;
     cursor: pointer;
   }
 
   .header__search-btn:active .header__icon,
   .header__burger:active .header__icon,
-  .header__link:active .header__icon{
+  .header__link:active .header__icon {
     opacity: 0.7;
   }
 
-  .header__link{
+  .header__link {
     margin: 0 0 0 33px;
     position: relative;
+
+    @include mobile {
+      display: none;
+    }
   }
 
-  /*можно тоже самое через span после svg*/
-  .header__link-basket::before{
+  .header__link--basket::before {
     position: absolute;
     content: '5';
     width: 19px;
@@ -106,63 +101,67 @@
     @include flex-center;
   }
 
-  .header__link-basket:hover::before,
-  .header__link-basket:focus::before{
-    background-color: $btn-pink-hover;
+  .header__link--basket:hover::before,
+  .header__link--basket:focus::before {
+    background-color: darken($pink-color, 5);
   }
 
-  .header__link-basket:active::before{
+  .header__link--basket:active::before {
     opacity: 0.7;
   }
 
-  .header__nav{
+  .header__nav {
     position: absolute;
     display: none;
     min-height: 764px;
-    max-width: 230px;
+    width: 230px;
     top: 100%;
-    right: -232px;
+    right: -230px;
     background: $white-color;
+    z-index: 1;
+
+    @include tablet {
+      right: -32px;
+    }
+
+    @include mobile {
+      right: -16px;
+    }
   }
 
-  .header__nav-close{
+  //javascript для функции display-block
+  .header__nav--show {
+    display: block;
+  }
+
+  .header__nav-close {
     border: none;
     background-color: transparent;
-    margin-top: 16px;
-    margin-left: 203px;
+    width: 12px;
+    height: 12px;
+    padding: 0;
+    margin: 16px 0 0 200px;
   }
 
-  .header__nav-icon{
+  .header__nav-icon {
     fill: $darkgrey-color;
   }
 
   .header__nav-close:hover .header__nav-icon,
-  .header__nav-close:focus .header__nav-icon{
+  .header__nav-close:focus .header__nav-icon {
     cursor: pointer;
     fill: $pink-color;
   }
 
-  .header__nav-close:active .header__nav-icon{
+  .header__nav-close:active .header__nav-icon {
     opacity: 0.7;
   }
 
-  .header__nav-title{
+  .header__nav-title {
     font-weight: 700;
     text-transform: uppercase;
     padding: 9px 0 4px 33px;
   }
-
-  //javascript для функции
-  .display-block {
-    display: block;
-  }
-
-  .header__link{
-    @media (max-width: 767px) {
-      display: none;
-    }
-}
-
 }
 
 
