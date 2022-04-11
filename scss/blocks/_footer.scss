@@ -1,25 +1,38 @@
 /*FOOTER*/
-.footer{
+.footer {
   background-color: $black-bkg;
 
-  .footer__wrp{
+  .footer__wrp {
+    height: 79px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    min-height: 79px;
+
+    @include mobile {
+      height: 143px;
+      flex-direction: column-reverse;
+    }
   }
 
-  .footer-text{
+  .footer__text {
     font-size: 16px;
     line-height: 19px;
     color: $advantages-color;
+
+    @include mobile {
+      padding-bottom: 9px;
+    }
   }
 
-  .footer-list{
+  .footer__list {
     display: flex;
+
+    @include mobile {
+      padding-top: 43px;
+    }
   }
 
-  .footer-link{
+  .footer__link {
     width: 32px;
     height: 32px;
     background: $white-color;
@@ -29,25 +42,25 @@
     margin: 0 0 0 7px;
   }
 
-  .footer-icon{
+  .footer__icon {
     fill: $black-bkg;
   }
 
-  .footer-link:hover,
-  .footer-link:focus {
+  .footer__link:hover,
+  .footer__link:focus {
     background: $pink-color;
   }
 
-  .footer-icon:hover,
-  .footer-icon:focus,
-  .footer-link:hover .footer-icon,
-  .footer-link:focus .footer-icon{
+  .footer__icon:hover,
+  .footer__icon:focus,
+  .footer__link:hover .footer__icon,
+  .footer__link:focus .footer__icon{
     fill: $white-color;
     cursor: pointer;
   }
 
-  .footer-link:active,
-  .footer-link:active .footer-icon{
+  .footer__link:active,
+  .footer__link:active .footer__icon {
     opacity: 0.7;
   }
 }
