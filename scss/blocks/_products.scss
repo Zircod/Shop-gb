@@ -1,50 +1,91 @@
 /*PRODUCTS*/
 .products {
-  margin: 96px 0;
-
-  @include tablet {
-    margin: 155px 0 65px 0;
-  }
-
-  @include mobile {
-    margin: 64px 0 96px 0;
-  }
 
   .products__title {
-    @include font (30px, 36px);
+    @include font(30px, 36px);
     text-align: center;
+    margin-top: 96px;
+
+    @include tablet {
+      margin-top: 155px;
+    }
+
+    @include mobile {
+      margin-top: 64px;
+    }
+  }
+
+  .products__title-link {
+    color: $black-bkg;
+    text-decoration: none;
+  }
+
+  .products__title-link:hover,
+  .products__title-link:focus {
+    cursor: pointer;
+    color: $pink-color;
+  }
+
+  .products__title-link:active {
+    opacity: 0.7;
   }
 
   .products__sub-title {
     @include font (14px, 17px);
     color: $grey-color;
     text-align: center;
+    margin-bottom: 48px;
+
+    @include tablet {
+      margin-bottom: 72px;
+    }
+
+    @include mobile {
+      margin-bottom: 65px;
+    }
   }
 
   .products__list {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    margin: 48px 0 18px 0;
+    gap: 30px;
 
     @include tablet {
-      justify-content: space-around;
-      margin: 72px 0 18px 0;
+      justify-content: space-evenly;
+      gap: 16px;
     }
 
     @include  mobile {
       justify-content: center;
-      margin: 65px 0 23px 0;
+    }
+  }
+
+  .products__list-margin {
+    margin: 128px 0;
+
+    @include mobile {
+      margin: 65px 0;
     }
   }
 
   .products__item {
     max-width: 360px;
+    width: 100%;
     background-color: $products-bkg;
-    margin: 0 0 30px 0;
 
     @include tablet {
-      margin: 0 0 17px 0;
+      width: 48%;
+    }
+
+    @include mobile {
+      width: 100%;
+    }
+  }
+
+  .products__item-display-none {
+    @include tablet {
+      display: none;
     }
   }
 
@@ -60,6 +101,10 @@
     position: absolute;
     top: 0;
     display: none;
+  }
+
+  .products__item-img {
+    width: 100%;
   }
 
   .products__item-btn {
@@ -119,6 +164,15 @@
   .products__button-wrp {
     display: flex;
     justify-content: center;
+    margin: 48px 0 96px 0;
+
+    @include tablet {
+      margin: 33px 0 65px 0;
+    }
+
+    @include mobile {
+      margin: 41px 0 96px 0;
+    }
   }
 
   .products__button {
@@ -139,5 +193,6 @@
   .products__button:active {
     opacity: 0.7;
   }
+
 }
 

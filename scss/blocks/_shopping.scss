@@ -108,6 +108,7 @@
     @include mobile {
       @include font (16px, 19px);
       margin-bottom: 25px;
+      width: 70%;
     }
   }
 
@@ -122,6 +123,7 @@
 
     @include mobile {
       @include font (14px, 17px);
+      margin-bottom: 3px;
     }
   }
 
@@ -138,6 +140,13 @@
     margin-left: 24px;
     color: $darkgrey-color;
     text-align: center;
+
+    @include mobile {
+      @include font (10px, 12px);
+      width: 24px;
+      height: 15px;
+      margin-left: 15px;
+    }
   }
 
   .shopping__btn {
