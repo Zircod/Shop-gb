@@ -6,9 +6,11 @@
     min-height: 148px;
     display: flex;
     align-items: center;
+    justify-content: space-between;
 
     @include mobile {
       justify-content: center;
+      flex-direction: column;
     }
   }
 
@@ -16,6 +18,39 @@
     @include font (24px, 29px);
     text-transform: uppercase;
     color: $pink-color;
+  }
+
+  .headline__list{
+    display: flex;
+
+    @include mobile {
+    margin-top: 32px;
+    }
+  }
+
+  .headline__item:first-child:after,
+  .headline__item:nth-child(2):after{
+    content: "/";
+    margin: 0 5px;
+    color: $menu-grey-color;
+  }
+
+  .headline__link{
+    text-decoration: none;
+    text-transform: uppercase;
+    color: $menu-grey-color;
+    @include font(14px, 17px, normal, 300);
+  }
+
+  .headline__link:hover,
+  .headline__link:focus{
+    color: $pink-color;
+    cursor: pointer;
+  }
+
+  .headline__link:active{
+    color: $pink-color;
+    font-weight: 700;
   }
 }
 
