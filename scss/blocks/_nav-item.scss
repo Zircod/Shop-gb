@@ -15,6 +15,7 @@
     color: $menu-grey-color;
     text-transform: capitalize;
     text-decoration: none;
+    transition: color 0.3s linear;
   }
 
   .nav-item__link:hover,

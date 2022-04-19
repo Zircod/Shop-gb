@@ -82,6 +82,7 @@
     fill: $menu-grey-color;
     width: 18px;
     height: 18px;
+    transition: 0.4s;
 
     @include mobile {
       width: 10px;
@@ -140,6 +141,7 @@
     margin-left: 24px;
     color: $darkgrey-color;
     text-align: center;
+    transition: 0.4s;
 
     @include mobile {
       @include font (10px, 12px);
@@ -172,6 +174,7 @@
     background: none;
     padding: 16px 40px;
     text-transform: uppercase;
+    transition: 0.4s;
 
     @include mobile {
       @include font (12px, 14px, normal, 400);
@@ -229,6 +232,7 @@
     box-sizing: border-box;
     color: $black-bkg;
     text-align: left;
+    transition: outline 0.4s linear;
   }
 
   .shopping__address-input::placeholder {
@@ -250,6 +254,7 @@
     text-transform: uppercase;
     color: $darkgrey-color;
     margin: 24px 0 57px 0;
+    transition: 0.4s;
 
     @include tablet {
       margin-bottom: 0;
@@ -323,6 +328,7 @@
     color: $white-color;
     margin-top: 17px;
     box-sizing: border-box;
+    transition: 0.4s;
   }
 
   .shopping__total-btn:hover,

@@ -40,10 +40,12 @@
     justify-content: center;
     align-items: center;
     margin: 0 0 0 7px;
+    transition: background 0.4s linear;
   }
 
   .footer__icon {
     fill: $black-bkg;
+    transition: background 0.4s linear;
   }
 
   .footer__link:hover,
