@@ -40,6 +40,7 @@
     text-transform: uppercase;
     color: $menu-grey-color;
     @include font(14px, 17px, normal, 300);
+    transition: color 0.3s linear;
   }
 
   .headline__link:hover,

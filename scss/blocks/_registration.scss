@@ -45,6 +45,7 @@
     border: 1px solid $shopping-input-grey;
     color: $black-bkg;
     box-sizing: border-box;
+    transition: outline 0.2s linear;
   }
 
   .registration__login-input::placeholder {
@@ -66,6 +67,7 @@
     display: inline-flex;
     align-items: center;
     margin-right: 20px;
+    transition: 0.4s;
   }
 
   .registration__login-male:before {
@@ -76,6 +78,7 @@
     border: 1px solid $shopping-input-grey;
     box-sizing: border-box;
     margin-right: 10px;
+    transition: 0.4s;
   }
 
   .registration__login-check {
@@ -83,9 +86,15 @@
   }
 
   .registration__login-check:focus + .registration__login-male:before,
-  .registration__login-check:hover + .registration__login-male:before,
+  .registration__login-check:hover + .registration__login-male:before {
+    border: 2px solid $pink-color;
+    cursor: pointer;
+  }
+
+
   .registration__login-check:focus + .registration__login-male,
   .registration__login-check:hover + .registration__login-male {
+    color: $pink-color;
     cursor: pointer;
   }
 
@@ -94,9 +103,8 @@
   }
 
   .registration__login-check:checked + .registration__login-male:before {
-    background-color: $pink-color;
     border-color: $pink-color;
-    background-image: url("../img/checkmark.svg");
+    background-image: url("../img/check-pink.svg");
     background-size: 60% 60%;
     background-repeat: no-repeat;
     background-position: center;
@@ -116,6 +124,7 @@
     background: $pink-color;
     border: none;
     text-transform: uppercase;
+    transition: 0.4ms;
   }
 
   .registration__login-btn:hover,

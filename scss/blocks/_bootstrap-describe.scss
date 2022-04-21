@@ -1,4 +1,5 @@
- .bootstrap-describe {
+//Product page
+.bootstrap-describe {
    max-width: 1140px;
    border: 1px solid #EAEAEA;
    background-color: $white-color;
@@ -80,25 +81,12 @@
      background: none;
      box-sizing: border-box;
      margin-top: 48px;
+     transition: color 0.2s linear,
+                  background 0.2s linear;
 
      @include mobile {
        margin-top: 65px;
      }
-   }
-
-   .bootstrap-describe__btn:focus .bootstrap-describe__btn-basket,
-   .bootstrap-describe__btn:hover .bootstrap-describe__btn-basket,
-   .bootstrap-describe__btn:focus,
-   .bootstrap-describe__btn:hover {
-     color: $white-color;
-     background: $btn-pink-hover;
-     cursor: pointer;
-     fill: $white-color;
-   }
-
-   .bootstrap-describe__btn:active,
-   .bootstrap-describe__btn-basket:active {
-     opacity: 0.7;
    }
 
    .bootstrap-describe__btn-basket {
@@ -107,6 +95,24 @@
      margin-right: 23px;
      vertical-align: middle;
      fill: $pink-color;
+     transition: fill 0.2s linear;
+   }
+
+   .bootstrap-describe__btn:focus .bootstrap-describe__btn-basket,
+   .bootstrap-describe__btn:hover .bootstrap-describe__btn-basket {
+     fill: $white-color;
+   }
+
+   .bootstrap-describe__btn:focus,
+   .bootstrap-describe__btn:hover {
+     color: $white-color;
+     background: $btn-pink-hover;
+     cursor: pointer;
+   }
+
+   .bootstrap-describe__btn:active,
+   .bootstrap-describe__btn-basket:active {
+     opacity: 0.7;
    }
 
    .form-select {
